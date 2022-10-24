@@ -39,9 +39,18 @@ for (var yy = 0; yy < vcells; yy ++) {
 
 #endregion
 
+#region SETUP SPRITE ARRAY
+
+global.cell_sprites[e_tile_data.floor_index] = spr_iso_floor;
+
+#endregion
+
 
 #region EXTRA VARIABLES
 
+grid_x = 0; //Where is the mouse on the grid?
+grid_y = 0; //Where is the mouse on the grid?
+new_index = 1; //We'll use this variable to change the cell indexes
 iso_width = sprite_get_width(spr_iso_width_height);
 iso_height = sprite_get_height(spr_iso_width_height);
 
@@ -51,6 +60,8 @@ cy = -(camera_get_view_height(view_camera[0]) / 4);
 camera_set_view_pos(view_camera[0], cx, cy);
 
 current_height = 0;
+current_part = e_tile_data.floor_index;
+current_sprite = global.cell_sprites[current_part];
 
 display_all_heights = true;
 
